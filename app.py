@@ -3,7 +3,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import pickle
 from typing import List
-from googletrans import Translator
+from deep_translator import MicrosoftTranslator
 
 # Define the request body structure
 class Texts(BaseModel):
@@ -12,7 +12,6 @@ class Texts(BaseModel):
 
 # Global variables to store models and translator
 ml_models = {}
-translator = Translator()
 
 # Load the models
 def load_models():
@@ -40,10 +39,8 @@ def preprocess(text):
 
 # Translate text from Indonesian to English
 def translate_texts(texts):
-    translated_texts = []
-    for text in texts:
-        translated = translator.translate(text, src='id', dest='en')
-        translated_texts.append(translated.text)
+    translator = MicrosoftTranslator(source='id', target='en')
+    translated_texts = [translator.translate(text) for text in texts]
     return translated_texts
 
 # Predict function

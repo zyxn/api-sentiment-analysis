@@ -1,8 +1,5 @@
 fastapi==0.111.0
-httpcore==0.15.0 
-httpx 
-pymongo
-googletrans==4.0.0-rc1
+deep-translator
 pydantic==1.10.12
 uvicorn==0.30.1
 scikit-learn
