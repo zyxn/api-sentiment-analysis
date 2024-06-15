@@ -1,7 +1,7 @@
 fastapi==0.111.0
 httpcore==0.15.0 
 httpx 
-pymongo s
+pymongo
 googletrans==4.0.0-rc1
 pydantic==1.10.12
 uvicorn==0.30.1
